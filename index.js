@@ -2,6 +2,9 @@ function initGame() {
 	// 🧠 Set the page title dynamically
 	document.title = "Shinkei Suijaku 神経衰弱 🧠";
 
+	// Clear previous content if any (useful for restart later)
+	document.body.innerHTML = '';
+
 	// 1️⃣ Create header
 	const title = document.createElement('h1');
 	title.textContent = 'Memory Game - Shinkei Suijaku 神経衰弱 🧠';
@@ -18,11 +21,20 @@ function initGame() {
 		{ name: 'malaysia', img: 'https://flagcdn.com/w320/my.png' }
 	];
 
-	// Duplicate and shuffle the flags
-	let cardsData = [...flags, ...flags];
-	cardsData = cardsData.sort(() => Math.random() - 0.5);
+	// 4️⃣ Build the cards dynamically
+	createBoard(flags);
 
-	// 4️⃣ Create card elements dynamically
+	// 5️⃣ Set up the game logic
+	setupCardLogic(flags);
+}
+
+// 🧱 Create the card board UI
+function createBoard(flags) {
+	const gameBoard = document.querySelector('.game-board');
+
+	// Duplicate and shuffle flags
+	let cardsData = [...flags, ...flags].sort(() => Math.random() - 0.5);
+
 	cardsData.forEach(flag => {
 		const card = document.createElement('div');
 		card.classList.add('card');
@@ -43,8 +55,10 @@ function initGame() {
 		card.appendChild(back);
 		gameBoard.appendChild(card);
 	});
+}
 
-	// 5️⃣ Flip & match logic
+// 🧠 Handle flipping and matching logic
+function setupCardLogic(flags) {
 	const cards = document.querySelectorAll('.card');
 	let flippedCard = null;
 	let lockBoard = false;
@@ -65,7 +79,7 @@ function initGame() {
 					matchedPairs++;
 					flippedCard = null;
 
-					// 🏆 Check if all pairs matched
+					// 🏆 All matched?
 					if (matchedPairs === flags.length) {
 						setTimeout(() => {
 							document.title = '🏆 You matched all!';
