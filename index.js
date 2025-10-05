@@ -17,8 +17,8 @@ function initGame() {
 
 	// 3️⃣ Define the cards data
 	const flags = [
-		{ name: 'japan', img: 'https://flagcdn.com/w320/jp.png' },
-		{ name: 'malaysia', img: 'https://flagcdn.com/w320/my.png' }
+		{ name: 'japan', img: 'images/japan.svg' },
+		{ name: 'malaysia', img: 'images/malaysia.svg' }
 	];
 
 	// 4️⃣ Build the cards dynamically
