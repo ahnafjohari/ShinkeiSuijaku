@@ -23,7 +23,8 @@ function initGame() {
 		{ name: 'china', img: 'images/china.svg' },
 		{ name: 'england', img: 'images/england.svg' },
 		{ name: 'japan', img: 'images/japan.svg' },
-		{ name: 'malaysia', img: 'images/malaysia.svg' }
+		{ name: 'malaysia', img: 'images/malaysia.svg' },
+		{ name: 'russia', img: 'images/russia.svg' },
 	];
 
 	// 4️⃣ Build the cards dynamically
@@ -37,9 +38,19 @@ function initGame() {
 function createBoard(flags) {
 	const gameBoard = document.querySelector('.game-board');
 
-	// Duplicate and shuffle flags
+	// 🧮 Total number of cards (pairs × 2)
+	const totalCards = flags.length * 2;
+
+	// 📏 Calculate grid size (square-ish)
+	const gridSize = Math.ceil(Math.sqrt(totalCards)); // e.g. 6 cards -> 3x3
+
+	// 🧱 Apply dynamic grid style
+	gameBoard.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+
+	// 🃏 Duplicate and shuffle flags
 	let cardsData = [...flags, ...flags].sort(() => Math.random() - 0.5);
 
+	// 🧠 Create cards
 	cardsData.forEach(flag => {
 		const card = document.createElement('div');
 		card.classList.add('card');

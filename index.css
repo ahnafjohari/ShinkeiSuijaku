@@ -12,8 +12,9 @@ h1 {
 
 .game-board {
 	display: grid;
-	grid-template-columns: repeat(2, 150px);
-	grid-gap: 15px;
+	gap: 10px;
+	max-width: 600px;
+	margin: 10px auto;
 	justify-content: center;
 }
 
