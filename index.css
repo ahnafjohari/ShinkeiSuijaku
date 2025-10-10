@@ -1,30 +1,49 @@
+/* 🌈 Base layout */
 body {
-	font-family: Arial, sans-serif;
-	background: #f0f0f0;
-	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	background: linear-gradient(160deg, #4ecdc4, #556270);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	margin: 0;
-	padding: 20px;
+	color: #fff;
+	text-align: center;
 }
 
+/* 🧠 Title */
 h1 {
-	margin-bottom: 20px;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
 }
 
+/* 🎮 Game container */
 .game-board {
 	display: grid;
-	gap: 10px;
+	gap: 15px;
+	padding: 20px;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(6px);
+	border-radius: 20px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 	max-width: 600px;
-	margin: 10px auto;
+	margin: 0 auto;
 	justify-content: center;
 }
 
+/* 🃏 Card styling */
 .card {
 	position: relative;
-	width: 150px;
-	height: 150px;
+	width: 100px;
+	height: 100px;
 	perspective: 800px;
 	cursor: pointer;
-	padding: 4px;
 }
 
 .card .front,
@@ -33,38 +52,63 @@ h1 {
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
-	border-radius: 10px;
+	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-size: 2rem;
-	background: white;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.4s ease;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 💡 Card front (flag) */
+.card .front {
+	background: #ffffff;
+	transform: rotateY(180deg);
 }
 
 .card .front img {
-	width: 100%;
-	height: 100%;
-	border-radius: 10px;
+	width: 80%;
+	height: 80%;
 	object-fit: contain;
+	border-radius: 8px;
 }
 
+/* ❓ Card back */
 .card .back {
-	background: #3498db;
+	background: #1e3d59;
 	color: white;
 	transform: rotateY(0deg);
-	transition: transform 0.4s;
+	font-weight: bold;
 }
 
-.card .front {
-	transform: rotateY(180deg);
-	transition: transform 0.4s;
-}
-
+/* 🔄 Flipped state */
 .card.flipped .front {
 	transform: rotateY(0deg);
 }
 
 .card.flipped .back {
 	transform: rotateY(180deg);
+}
+
+
+/* 🔁 Restart Button */
+.restart-btn {
+	background: none;
+	border: none;
+	color: #333;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 8px 16px;
+	border-radius: 8px;
+	transition: all 0.2s ease;
+}
+
+.restart-btn:hover {
+	background: rgba(0, 0, 0, 0.05);
+}
+
+.restart-btn:active {
+	transform: scale(0.95);
 }

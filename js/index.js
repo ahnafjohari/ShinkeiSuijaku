@@ -12,6 +12,13 @@ function initGame() {
 	title.textContent = 'Memory Game - Shinkei Suijaku 神経衰弱 🧠';
 	document.body.appendChild(title);
 
+	// 🔁 Restart button
+	const restartBtn = document.createElement('button');
+	restartBtn.textContent = '↻ Restart';
+	restartBtn.classList.add('restart-btn');
+	restartBtn.addEventListener('click', initGame); // Restart the whole game
+	document.body.appendChild(restartBtn);
+
 	// 2️⃣ Create game board container
 	const gameBoard = document.createElement('div');
 	gameBoard.classList.add('game-board');
