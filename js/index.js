@@ -1,3 +1,5 @@
+import { flags } from './data.js';
+
 function initGame() {
 	// 🧠 Set the page title dynamically
 	document.title = "Shinkei Suijaku 神経衰弱 🧠";
@@ -14,18 +16,6 @@ function initGame() {
 	const gameBoard = document.createElement('div');
 	gameBoard.classList.add('game-board');
 	document.body.appendChild(gameBoard);
-
-	// 3️⃣ Define the cards data
-	const flags = [
-		{ name: 'argentina', img: 'images/argentina.svg' },
-		{ name: 'belgium', img: 'images/belgium.svg' },
-		{ name: 'brazil', img: 'images/brazil.svg' },
-		{ name: 'china', img: 'images/china.svg' },
-		{ name: 'england', img: 'images/england.svg' },
-		{ name: 'japan', img: 'images/japan.svg' },
-		{ name: 'malaysia', img: 'images/malaysia.svg' },
-		{ name: 'russia', img: 'images/russia.svg' },
-	];
 
 	// 4️⃣ Build the cards dynamically
 	createBoard(flags);
@@ -116,4 +106,8 @@ function setupCardLogic(flags) {
 			}
 		});
 	});
+}
+
+export { 
+	initGame
 }

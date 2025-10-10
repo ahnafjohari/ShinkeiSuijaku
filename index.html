@@ -3,15 +3,15 @@
 
 <head>
 	<meta charset="UTF-8">
+	<title>Loading...</title>
 	<link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-	<!-- Load JS first -->
-	<script src="index.js"></script>
 
-	<!-- Trigger initialization after DOM is ready -->
-	<script>
+	<!-- Everything is built dynamically -->
+	<script type="module">
+		import { initGame } from './js/index.js';
 		window.addEventListener('DOMContentLoaded', initGame);
 	</script>
 </body>
